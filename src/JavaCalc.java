@@ -8,9 +8,9 @@ public class JavaCalc {
 // 		Double output = new Double(input) + 3.2;
 // 		System.out.println(output);
 		
-		Character[] arrInput = {'1', '3', '/', '1', '/'};
+		char[] arrInput = "13/1/".toCharArray();
 		Stack<Double> stkNums = new Stack<Double>();
-		for (Character i : arrInput) {
+		for (char i : arrInput) {
 			if (Character.isDigit(i)) {
 				stkNums.push(new Double(Character.getNumericValue(i)));
 			}
