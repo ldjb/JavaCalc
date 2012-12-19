@@ -3,12 +3,12 @@ import java.util.*;
 
 public class JavaCalc {
 	public static void main(String[] args) throws IOException, NumberFormatException{
-// 		BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-// 		String input = stdin.readLine();
+		BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
+		String input = stdin.readLine();
 // 		Double output = new Double(input) + 3.2;
 // 		System.out.println(output);
 		
-		char[] arrInput = "13/1/".toCharArray();
+		char[] arrInput = input.toCharArray();
 		Stack<Double> stkNums = new Stack<Double>();
 		for (char i : arrInput) {
 			if (Character.isDigit(i)) {
