@@ -1,5 +1,4 @@
-import java.util.*;
-
+import java.util.Stack;
 public class RPNcalc {
 	public static Double eval(Object[] arrInput) {
 		Stack<Double> stkNums = new Stack<Double>();
