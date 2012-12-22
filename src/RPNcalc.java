@@ -1,16 +1,14 @@
-/*************************************************
-** RPNcalc.java                                 **
-** -------------------------------------------- **
-** Java class for calculating mathematical      **
-** expressions represented in reverse Polish    **
-** notation (RPN) / postfix notation. The       **
-** eval() method takes as input an Object array **
-** consisting of Double and String elements and **
-** returns the result as a Double.              **
-** -------------------------------------------- **
-** Developed by Leon Byford <ldjb20@bath.ac.uk> **
-** Last modified: 21 December 2012              **
-*************************************************/
+/*******************************************************************************
+** RPNcalc.java                                                               **
+** -------------------------------------------------------------------------- **
+** Java class for calculating mathematical expressions represented in reverse **
+** Polish notation (RPN) / postfix notation. The eval() method takes as input **
+** an Object array consisting of Double and String elements and returns the   **
+** result as a Double.                                                        **
+** -------------------------------------------------------------------------- **
+** Developed by Leon Byford <ldjb20@bath.ac.uk>                               **
+** Last modified: 21 December 2012                                            **
+*******************************************************************************/
 
 // import stack class
 import java.util.Stack;
