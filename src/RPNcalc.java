@@ -7,7 +7,7 @@
 ** result as a Double.                                                        **
 ** -------------------------------------------------------------------------- **
 ** Developed by Leon Byford <ldjb20@bath.ac.uk>                               **
-** Last modified: 21 December 2012                                            **
+** Last modified: 22 December 2012                                            **
 *******************************************************************************/
 
 // import stack class
@@ -23,25 +23,25 @@ public class RPNcalc {
 				stkNums.push(new Double(i.toString()));
 			}
 			// if item is a plus, pop two numbers and push their sum
-			else if (i.toString() == "+") {
+			else if (i.equals("+")) {
 				Double var1 = stkNums.pop();
 				Double var2 = stkNums.pop();
 				stkNums.push(var2+var1);
 			}
 			// if item is a minus, pop two numbers and push their difference
-			else if (i.toString() == "-") {
+			else if (i.equals("-")) {
 				Double var1 = stkNums.pop();
 				Double var2 = stkNums.pop();
 				stkNums.push(var2-var1);
 			}
 			// if item is an asterisk, pop two numbers and push their product
-			else if (i.toString() == "*") {
+			else if (i.equals("*")) {
 				Double var1 = stkNums.pop();
 				Double var2 = stkNums.pop();
 				stkNums.push(var2*var1);
 			}
 			// if item is a slash, pop two numbers and push their quotient
-			else if (i.toString() == "/") {
+			else if (i.equals("/")) {
 				Double var1 = stkNums.pop();
 				Double var2 = stkNums.pop();
 				stkNums.push(var2/var1);
