@@ -8,7 +8,7 @@ public class Calculator {
 			if (input.toUpperCase().equals("QUIT")) {
 				break;
 			}
-			System.out.println(RPNcalc.eval(StringParser.parse(input)));
+			//System.out.println(RPNcalc.eval(StringParser.parse(input)));
 		}
 	}
 }

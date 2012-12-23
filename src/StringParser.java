@@ -58,7 +58,6 @@ public class StringParser {
 				arrInput.add(dblCurrentValue);
 			}
 		}
-		System.out.println(arrInput);
 		return arrInput.toArray();
 	}
 }
