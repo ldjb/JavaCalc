@@ -16,9 +16,9 @@ public class StringParser {
 								  new Double(Character.getNumericValue(i));
 			}
 			else if (i == '-' && flgDigitEntered == false) {
-				flgNegMode = true;
+				flgNegMode = !flgNegMode;
 			}
-			else {
+			else if (i != ' ') {
 				if (flgDigitEntered) {
 					if (flgNegMode) {
 						arrInput.add(-dblCurrentValue);
