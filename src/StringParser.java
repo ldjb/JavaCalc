@@ -1,3 +1,4 @@
+// allow doubles, negatives
 // input: string inputted by user
 // output: array formatted for shunting-yard converter
 
@@ -6,6 +7,7 @@ public class StringParser {
 	public static Object[] parse(String input) {
 		ArrayList<Object> arrInput = new ArrayList<Object>();
 		boolean flgDigitEntered = false;
+		boolean flgNegMode = false;
 		Double dblCurrentValue = new Double(0);
 		for (char i : input.toCharArray()) {
 			if (Character.isDigit(i)) {
@@ -13,9 +15,18 @@ public class StringParser {
 				dblCurrentValue = dblCurrentValue * 10 +
 								  new Double(Character.getNumericValue(i));
 			}
+			else if (i == '-' && flgDigitEntered == false) {
+				flgNegMode = true;
+			}
 			else {
 				if (flgDigitEntered) {
-					arrInput.add(dblCurrentValue);
+					if (flgNegMode) {
+						arrInput.add(-dblCurrentValue);
+						flgNegMode = false;
+					}
+					else {
+						arrInput.add(dblCurrentValue);
+					}
 					dblCurrentValue = new Double(0);
 					flgDigitEntered = false;
 				}
@@ -23,9 +34,14 @@ public class StringParser {
 			}
 		}
 		if (flgDigitEntered) {
-			arrInput.add(dblCurrentValue);
+			if (flgNegMode) {
+				arrInput.add(-dblCurrentValue);
+			}
+			else {
+				arrInput.add(dblCurrentValue);
+			}
 		}
-		//System.out.println(arrInput);
+		System.out.println(arrInput);
 		return arrInput.toArray();
 	}
 }
