@@ -5,7 +5,7 @@ public class Calculator {
 							   new InputStreamReader(System.in));
 		while (true) {
 			String input = stdin.readLine();
-			if (input.equals("quit")) {
+			if (input.toUpperCase().equals("QUIT")) {
 				break;
 			}
 			System.out.println(RPNcalc.eval(StringParser.parse(input)));
