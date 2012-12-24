@@ -8,10 +8,15 @@ public class Calculator {
 			if (input.toUpperCase().equals("QUIT")) {
 				break;
 			}
-			//System.out.println(ShuntingYard.convert(StringParser.parse(input)));
-			double unrounded = RPNcalc.eval(
+			Double unrounded = RPNcalc.eval(
 							   ShuntingYard.convert(StringParser.parse(input)));
-			System.out.println(Math.round(unrounded*1000000000)/1000000000.0);
+			Double rounded = Math.round(unrounded*1000000000)/1000000000.0;
+			if (Math.round(unrounded) == rounded) {
+				System.out.println(rounded.intValue());
+			}
+			else {
+				System.out.println(rounded);
+			}
 		}
 	}
 }
