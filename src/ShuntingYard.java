@@ -23,6 +23,7 @@ public class ShuntingYard {
 			}
 			else {
 				while (!operatorStack.empty() &&
+					   !operatorStack.peek().equals("(") &&
 					   ((operatorData.get(i)[1].equals("left") &&
 					   Integer.parseInt(operatorData.get(i)[0].toString()) <=
 					   Integer.parseInt(operatorData.get(
@@ -38,7 +39,6 @@ public class ShuntingYard {
 		while (!operatorStack.empty()) {
 			outputQueue.add(operatorStack.pop());
 		}
-		System.out.println(outputQueue);//***
 		return outputQueue.toArray();
 	}
 }
