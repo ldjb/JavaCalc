@@ -11,7 +11,7 @@
 *******************************************************************************/
 
 // import stack class
-import java.util.Stack;
+import java.util.*;
 public class RPNcalc {
 	public static Double eval(Object[] arrInput) {
 		// declare stack for storing numerical (Double) values
