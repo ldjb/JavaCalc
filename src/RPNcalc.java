@@ -1,5 +1,5 @@
 /*******************************************************************************
-** RPNcalc.java                                                               **
+** RPNcalc.java [work in progress]                                            **
 ** -------------------------------------------------------------------------- **
 ** Java class for calculating mathematical expressions represented in reverse **
 ** Polish notation (RPN) / postfix notation. The eval() method takes as input **
@@ -7,7 +7,11 @@
 ** result as a Double.                                                        **
 ** -------------------------------------------------------------------------- **
 ** Developed by Leon Byford <ldjb20@bath.ac.uk>                               **
-** Last modified: 22 December 2012                                            **
+** Last modified: •••                                                         **
+** -------------------------------------------------------------------------- **
+** [To do]                                                                    **
+** • Communicate with operator objects.                                       **
+** • Documentation.                                                           **
 *******************************************************************************/
 
 // import stack class

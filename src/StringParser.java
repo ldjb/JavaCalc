@@ -1,3 +1,17 @@
+/*******************************************************************************
+** StringParser.java [work in progress]                                       **
+** -------------------------------------------------------------------------- **
+** The parse() method takes a String as input and tokenises it, returning an  **
+** Object array consisting of Double elements (for the numbers) and String    **
+** elements (for the operators and parentheses).                              **
+** -------------------------------------------------------------------------- **
+** Developed by Leon Byford <ldjb20@bath.ac.uk>                               **
+** Last modified: •••                                                         **
+** -------------------------------------------------------------------------- **
+** [To do]                                                                    **
+** • Documentation.                                                           **
+*******************************************************************************/
+
 // input: string inputted by user
 // output: array formatted for shunting-yard converter
 
