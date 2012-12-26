@@ -14,7 +14,7 @@
 ** • Documentation.                                                           **
 *******************************************************************************/
 
-// import stack class
+// import util package
 import java.util.*;
 public class RPNcalc {
 	public static Double eval(Object[] arrInput) {
