@@ -9,7 +9,6 @@
 ** -------------------------------------------------------------------------- **
 ** [To do]                                                                    **
 ** • Implement a graphical user interface.                                    **
-** • Implement capability to store results for further computations.          **
 ** • Extension.txt.                                                           **
 ** • Documentation.                                                           **
 *******************************************************************************/
@@ -20,20 +19,31 @@ public class Calculator {
 	public static void main(String[] args) throws IOException {
 		BufferedReader stdin = new BufferedReader(
 							   new InputStreamReader(System.in));
+		Double unrounded = 0d;
+		Double result = 0d;
 		while (true) {
 			try {
 				String input = stdin.readLine();
 				if (input.toUpperCase().equals("QUIT")) {
 					break;
 				}
-				Double unrounded = RPNcalc.eval(ShuntingYard.convert(
-								   StringParser.parse(input)));
-				Double rounded = Math.round(unrounded*1000000000)/1000000000.0;
-				if (Math.round(unrounded) == rounded) {
-					System.out.println(rounded.intValue());
+				if (input.toUpperCase().equals("STORE")) {
+					result = unrounded;
+					System.out.println("Result stored. The string \"VAR\" will"+
+									   " be substituted with this result.");
 				}
-				else {
-					System.out.println(rounded);
+				else if (!input.equals("")) {
+					unrounded = RPNcalc.eval(ShuntingYard.convert(
+								StringParser.parse(
+								input.replaceAll("(?i)VAR", result.toString()))));
+					Double rounded = Math.round(unrounded*1000000000)/
+									 1000000000.0;
+					if (Math.round(unrounded) == rounded) {
+						System.out.println(rounded.intValue());
+					}
+					else {
+						System.out.println(rounded);
+					}
 				}
 			}
 			catch (Exception e) {
