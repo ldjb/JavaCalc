@@ -11,7 +11,6 @@
 ** Last modified: •••                                                         **
 ** -------------------------------------------------------------------------- **
 ** [To do]                                                                    **
-** • Communicate with operator objects.                                       **
 ** • Documentation.                                                           **
 *******************************************************************************/
 
@@ -20,11 +19,6 @@ public class ShuntingYard {
 	public static Object[] convert(Object[] input) {
 		ArrayList<Object> outputQueue = new ArrayList<Object>();
 		Stack<Object> operatorStack = new Stack<Object>();
-		Map<String, Object[]> operatorData = new HashMap<String, Object[]>();
-		operatorData.put("*", new Object[] {3, "left"});
-		operatorData.put("/", new Object[] {3, "left"});
-		operatorData.put("+", new Object[] {2, "left"});
-		operatorData.put("-", new Object[] {2, "left"});
 		for (Object i : input) {
 			if (i.getClass().getName() == "java.lang.Double") {
 				outputQueue.add(i);
@@ -39,15 +33,13 @@ public class ShuntingYard {
 				operatorStack.pop();
 			}
 			else {
-				while (!operatorStack.empty() &&
-					   !operatorStack.peek().equals("(") &&
-					   ((operatorData.get(i)[1].equals("left") &&
-					   Integer.parseInt(operatorData.get(i)[0].toString()) <=
-					   Integer.parseInt(operatorData.get(
-					   operatorStack.peek())[0].toString())) ||
-					   (Integer.parseInt(operatorData.get(i)[0].toString()) <
-					   Integer.parseInt(operatorData.get(
-					   operatorStack.peek())[0].toString())))) {
+				while (
+!operatorStack.empty() && !operatorStack.peek().equals("(") && (
+	(Operator.opAssoc(i).equals("left") &&
+	Operator.opPrec(i) <= Operator.opPrec(operatorStack.peek())) ||
+	(Operator.opPrec(i) < Operator.opPrec(operatorStack.peek()))
+)
+				) {
 					outputQueue.add(operatorStack.pop());
 				}
 				operatorStack.push(i);

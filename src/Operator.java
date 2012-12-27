@@ -35,7 +35,11 @@ public class Operator {
 	public Object[] getData() {
 		return new Object[] {precedence, associativity};
 	}
-	public static Object[] opData(String input) {
-		return getOperator(input).getData();
+	public static int opPrec(Object input) {
+		return
+		new Integer(getOperator(input.toString()).getData()[0].toString());
+	}
+	public static String opAssoc(Object input) {
+		return getOperator(input.toString()).getData()[1].toString();
 	}
 }
