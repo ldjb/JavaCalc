@@ -7,6 +7,7 @@
 ** Last modified: •••                                                         **
 ** -------------------------------------------------------------------------- **
 ** [To do]                                                                    **
+** • Evaluate which methods should be public/private.                         **
 ** • Documentation.                                                           **
 *******************************************************************************/
 
@@ -41,5 +42,11 @@ public class Operator {
 	}
 	public static String opAssoc(Object input) {
 		return getOperator(input.toString()).getData()[1].toString();
+	}
+	public static Double operate(String operator, Double var1, Double var2) {
+		return getOperator(operator).operate(var1, var2);
+	}
+	public Double operate(Double var1, Double var2) {
+		return null;
 	}
 }

@@ -10,7 +10,6 @@
 ** Last modified: •••                                                         **
 ** -------------------------------------------------------------------------- **
 ** [To do]                                                                    **
-** • Communicate with operator objects.                                       **
 ** • Documentation.                                                           **
 *******************************************************************************/
 
@@ -26,29 +25,10 @@ public class RPNcalc {
 			if (i.getClass().getName() == "java.lang.Double") {
 				stkNums.push(new Double(i.toString()));
 			}
-			// if item is a plus, pop two numbers and push their sum
-			else if (i.equals("+")) {
+			else {
 				Double var1 = stkNums.pop();
 				Double var2 = stkNums.pop();
-				stkNums.push(var2+var1);
-			}
-			// if item is a minus, pop two numbers and push their difference
-			else if (i.equals("-")) {
-				Double var1 = stkNums.pop();
-				Double var2 = stkNums.pop();
-				stkNums.push(var2-var1);
-			}
-			// if item is an asterisk, pop two numbers and push their product
-			else if (i.equals("*")) {
-				Double var1 = stkNums.pop();
-				Double var2 = stkNums.pop();
-				stkNums.push(var2*var1);
-			}
-			// if item is a slash, pop two numbers and push their quotient
-			else if (i.equals("/")) {
-				Double var1 = stkNums.pop();
-				Double var2 = stkNums.pop();
-				stkNums.push(var2/var1);
+				stkNums.push(Operator.operate(i.toString(), var2, var1));
 			}
 		}
 		// there should only be one number in the stack -- return it
