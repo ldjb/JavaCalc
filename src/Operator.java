@@ -8,7 +8,6 @@
 ** -------------------------------------------------------------------------- **
 ** [To do]                                                                    **
 ** • Documentation.                                                           **
-** • Document sub-classes.                                                    **
 *******************************************************************************/
 
 public class Operator {
@@ -31,6 +30,9 @@ public class Operator {
 		else if (input.equals("/")) {
 			return new Division();
 		}
+		//else if (input.equals("^")) {
+		//	return new Exponentiation();
+		//}
 		return null;
 	}
 	private Object[] getData() {

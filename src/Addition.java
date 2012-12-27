@@ -1,3 +1,12 @@
+/*******************************************************************************
+** Addition.java                                                              **
+** -------------------------------------------------------------------------- **
+** Subclass of Operator.java. Performs addition.                              **
+** -------------------------------------------------------------------------- **
+** Developed by Leon Byford <ldjb20@bath.ac.uk>                               **
+** Last modified: 27 December 2012                                            **
+*******************************************************************************/
+
 public class Addition extends Operator {
 	public Addition() {
 		super.setData(new Object[] {2, "left"});

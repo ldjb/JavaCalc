@@ -1,17 +1,17 @@
 /*******************************************************************************
-** Subtraction.java                                                           **
+** Exponentiation.java                                                        **
 ** -------------------------------------------------------------------------- **
-** Subclass of Operator.java. Performs subtraction.                           **
+** Subclass of Operator.java. Performs exponentiation.                        **
 ** -------------------------------------------------------------------------- **
 ** Developed by Leon Byford <ldjb20@bath.ac.uk>                               **
 ** Last modified: 27 December 2012                                            **
 *******************************************************************************/
 
-public class Subtraction extends Operator {
-	public Subtraction() {
-		super.setData(new Object[] {2, "left"});
+public class Exponentiation extends Operator {
+	public Exponentiation() {
+		super.setData(new Object[] {4, "right"});
 	}
 	public Double operate(Double var1, Double var2) {
-		return var1 - var2;
+		return Math.pow(var1, var2);
 	}
 }
