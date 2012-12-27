@@ -8,7 +8,6 @@
 ** Last modified: •••                                                         **
 ** -------------------------------------------------------------------------- **
 ** [To do]                                                                    **
-** • Objectify operators.                                                     **
 ** • Implement a graphical user interface.                                    **
 ** • Implement capability to store results for further computations.          **
 ** • Documentation.                                                           **

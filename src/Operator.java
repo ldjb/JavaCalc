@@ -18,7 +18,7 @@ public class Operator {
 		precedence = new Integer(input[0].toString());
 		associativity = input[1].toString();
 	}
-	public static Operator getOperator(String input) {
+	private static Operator getOperator(String input) {
 		if (input.equals("+")) {
 			return new Addition();
 		}
@@ -33,7 +33,7 @@ public class Operator {
 		}
 		return null;
 	}
-	public Object[] getData() {
+	private Object[] getData() {
 		return new Object[] {precedence, associativity};
 	}
 	public static int opPrec(Object input) {
