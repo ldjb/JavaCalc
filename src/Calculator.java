@@ -10,6 +10,7 @@
 ** [To do]                                                                    **
 ** • Implement a graphical user interface.                                    **
 ** • Implement capability to store results for further computations.          **
+** • Extension.txt.                                                           **
 ** • Documentation.                                                           **
 *******************************************************************************/
 

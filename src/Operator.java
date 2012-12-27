@@ -7,8 +7,8 @@
 ** Last modified: •••                                                         **
 ** -------------------------------------------------------------------------- **
 ** [To do]                                                                    **
-** • Evaluate which methods should be public/private.                         **
 ** • Documentation.                                                           **
+** • Document sub-classes.                                                    **
 *******************************************************************************/
 
 public class Operator {
