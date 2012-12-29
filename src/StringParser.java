@@ -20,7 +20,7 @@ public class StringParser {
 		boolean flgNegMode = false;
 		boolean flgFractionMode = false;
 		// dblCurrentValue: variable to hold temporary values
-		Double dblCurrentValue = new Double(0);
+		Double dblCurrentValue = 0d;
 		// decimalPlaceCounter: used when a non-whole number is entered
 		int decimalPlaceCounter = 0;
 		// iterate over each character from input
@@ -63,7 +63,7 @@ public class StringParser {
 						arrTokens.add(dblCurrentValue);
 					}
 					// reset values
-					dblCurrentValue = new Double(0);
+					dblCurrentValue = 0d;
 					flgDigitEntered = false;
 				}
 				// add operator/parenthesis to token array

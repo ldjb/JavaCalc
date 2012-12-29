@@ -58,18 +58,18 @@ public class CalcGUI extends JFrame {
 	}
 
 	private void TextFieldActionPerformed(java.awt.event.ActionEvent evt) {
-		TextField.setText("Hello, world!");
+		TextField.setText(CalcIO.process(TextField.getText()));
 		TextField.requestFocus();
 		TextField.selectAll();
 	}
 
 	private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {
-		TextField.setText("Hello, world!");
+		TextField.setText(CalcIO.process(TextField.getText()));
 		TextField.requestFocus();
 		TextField.selectAll();
 	}
 
-	public static void main(String args[]) {
+	public static void initAll() {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new CalcGUI().setVisible(true);
