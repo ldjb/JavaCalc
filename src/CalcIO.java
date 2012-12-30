@@ -8,7 +8,10 @@ public class CalcIO {
 				return "Result stored. The string \"VAR\" will be substituted "+
 					   "with this result.";
 			}
-			else if (!input.equals("")) {
+			else if (input.equals("")) {
+				return "";
+			}
+			else {
 				unrounded = RPNcalc.eval(ShuntingYard.convert(
 							StringParser.parse(
 							input.replaceAll("(?i)VAR",
