@@ -9,9 +9,9 @@
 ** -------------------------------------------------------------------------- **
 ** [To do]                                                                    **
 ** • Implement a graphical user interface.                                    **
-** • Divide by zero.
+** • Ctrl+D                                                                   **
+** • Divide by zero.                                                          **
 ** • Do I really need "throws IOException"?                                   **
-** • Double unrounded = 0d; Double result = 0d; -- need private/public?       **
 ** • Extension.txt.                                                           **
 ** • Documentation.                                                           **
 *******************************************************************************/
@@ -19,49 +19,37 @@
 import java.io.*;
 import java.util.*;
 public class Calculator {
-	/*public static void main(String[] args) throws IOException {
+	private static void cliMode() throws IOException {
 		BufferedReader stdin = new BufferedReader(
 							   new InputStreamReader(System.in));
-		Double unrounded = 0d;
-		Double result = 0d;
 		while (true) {
-			try {
-				String input = stdin.readLine();
-				if (input.toUpperCase().equals("QUIT")) {
-					break;
-				}
-				if (input.toUpperCase().equals("STORE")) {
-					result = unrounded;
-					System.out.println("Result stored. The string \"VAR\" will"+
-									   " be substituted with this result.");
-				}
-				else if (!input.equals("")) {
-					unrounded = RPNcalc.eval(ShuntingYard.convert(
-								StringParser.parse(
-								input.replaceAll("(?i)VAR",
-												 result.toString()))));
-					Double rounded = Math.round(unrounded*1000000000)/
-									 1000000000.0;
-					if (Math.round(unrounded) == rounded) {
-						System.out.println(rounded.intValue());
-					}
-					else {
-						System.out.println(rounded);
-					}
-				}
+			String input = stdin.readLine();
+			if (input.toUpperCase().equals("QUIT")) {
+				break;
 			}
-			catch (Exception e) {
+			else if (input.equals("")) {
+				continue;
+			}
+			String output = CalcIO.process(input);
+			if (output == null) {
 				System.err.println("Error. Please try again.");
 			}
+			else {
+				System.out.println(output);
+			}
 		}
-	}*/
+	}
 	public static void main(String[] args) throws IOException {
-		CalcGUI.initAll();
-		BufferedReader stdin = new BufferedReader(
-							   new InputStreamReader(System.in));
-		while (true) {
-			System.out.println(CalcIO.process(stdin.readLine()));
+		if (args.length > 0 && args[0].toUpperCase().equals("FORCE-CLI")) {
+			cliMode();
 		}
-		
+		else {
+			try {
+				CalcGUI.initAll();
+			}
+			catch (Exception e) {
+				cliMode();
+			}
+		}
 	}
 }

@@ -17,15 +17,15 @@ public class CalcGUI extends JFrame {
 		TextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 		TextField.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				TextFieldActionPerformed(evt);
+				FormSubmitted();
 			}
 		});
 
 		Button.setText("Calculate");
-		Button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+		Button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		Button.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				ButtonActionPerformed(evt);
+				FormSubmitted();
 			}
 		});
 
@@ -56,15 +56,15 @@ public class CalcGUI extends JFrame {
 
 		pack();
 	}
-
-	private void TextFieldActionPerformed(java.awt.event.ActionEvent evt) {
-		TextField.setText(CalcIO.process(TextField.getText()));
-		TextField.requestFocus();
-		TextField.selectAll();
-	}
-
-	private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {
-		TextField.setText(CalcIO.process(TextField.getText()));
+	
+	private void FormSubmitted() {
+		String result = CalcIO.process(TextField.getText());
+		if (result != null) {
+			TextField.setText(result);
+		}
+		else {
+			TextField.setText("Error. Please try again.");
+		}
 		TextField.requestFocus();
 		TextField.selectAll();
 	}

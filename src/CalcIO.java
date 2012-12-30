@@ -24,7 +24,6 @@ public class CalcIO {
 			}
 		}
 		catch (Exception e) {
-			System.err.println("Error. Please try again.");
 		}
 		return null;
 	}
