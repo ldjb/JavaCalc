@@ -7,7 +7,7 @@
 ** result as a Double.                                                        **
 ** -------------------------------------------------------------------------- **
 ** Developed by Leon Byford <ldjb20@bath.ac.uk>                               **
-** Last modified: 27 December 2012                                            **
+** Last modified: 31 December 2012                                            **
 *******************************************************************************/
 
 // import util package
@@ -24,9 +24,15 @@ public class RPNcalc {
 			}
 			// if item is an operator, perform operation, push result to stack
 			else {
-				Double var1 = stkNums.pop();
-				Double var2 = stkNums.pop();
-				stkNums.push(Operator.operate(i.toString(), var2, var1));
+				try {
+					Double var1 = stkNums.pop();
+					Double var2 = stkNums.pop();
+					stkNums.push(Operator.operate(i.toString(), var2, var1));
+				}
+				catch (EmptyStackException e) {
+					// occurs if an operator is invalid
+					return null;
+				}
 			}
 		}
 		// there should only be one number in the stack -- return it
