@@ -8,10 +8,6 @@
 ** Last modified: •••                                                         **
 ** -------------------------------------------------------------------------- **
 ** [To do]                                                                    **
-** • Implement a graphical user interface.                                    **
-** • Ctrl+D                                                                   **
-** • Divide by zero.                                                          **
-** • Do I really need "throws IOException"?                                   **
 ** • Extension.txt.                                                           **
 ** • Documentation.                                                           **
 *******************************************************************************/
@@ -19,27 +15,38 @@
 import java.io.*;
 import java.util.*;
 public class Calculator {
-	private static void cliMode() throws IOException {
+	private static void cliMode() {
 		BufferedReader stdin = new BufferedReader(
 							   new InputStreamReader(System.in));
 		while (true) {
-			String input = stdin.readLine();
-			if (input.toUpperCase().equals("QUIT")) {
-				break;
+			try {
+				String input = stdin.readLine();
+				if (input.toUpperCase().equals("QUIT")) {
+					break;
+				}
+				else if (input.equals("")) {
+					continue;
+				}
+				String output = CalcIO.process(input);
+				if (output == null) {
+					System.err.println("Error. Please try again.");
+				}
+				else {
+					System.out.println(output);
+				}
 			}
-			else if (input.equals("")) {
+			catch (IOException e) {
+				// in theory should never occur
 				continue;
 			}
-			String output = CalcIO.process(input);
-			if (output == null) {
-				System.err.println("Error. Please try again.");
-			}
-			else {
-				System.out.println(output);
+			catch (NullPointerException e) {
+				// should only occur when Ctrl+D is pressed, in which case the
+				// program should quit
+				break;
 			}
 		}
 	}
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		if (args.length > 0 && args[0].toUpperCase().equals("FORCE-CLI")) {
 			cliMode();
 		}
@@ -47,7 +54,8 @@ public class Calculator {
 			try {
 				CalcGUI.initAll();
 			}
-			catch (Exception e) {
+			catch (HeadlessException e) {
+				// if GUI not possible, resort to command-line mode
 				cliMode();
 			}
 		}
