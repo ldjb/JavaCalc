@@ -15,8 +15,7 @@ public class CalcIO {
 							StringParser.parse(
 							input.replaceAll("(?i)VAR",
 											 result.toString()))));
-				Double rounded = Math.round(unrounded*1000000000)/
-								 1000000000.0;
+				Double rounded = Math.round(unrounded*1.0e9d)/1.0e9d;
 				if (Math.round(unrounded) == rounded) {
 					return Integer.toString(rounded.intValue());
 				}
