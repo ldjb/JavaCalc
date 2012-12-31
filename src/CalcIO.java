@@ -5,8 +5,7 @@ public class CalcIO {
 		try {
 			if (input.toUpperCase().equals("STORE")) {
 				result = unrounded;
-				return "Result stored. The string \"VAR\" will be substituted "+
-					   "with this result.";
+				return "Stored. \"VAR\" will be substituted with result.";
 			}
 			else if (input.equals("")) {
 				return "";
@@ -26,7 +25,7 @@ public class CalcIO {
 				}
 			}
 		}
-		catch (Exception e) {
+		catch (NullPointerException e) {
 		}
 		return null;
 	}
