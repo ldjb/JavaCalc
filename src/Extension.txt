@@ -1,0 +1,65 @@
+##########################################
+## Extending Java Calculator to include ##
+##     other mathematical operators     ##
+##                                      ##
+##   Leon Byford  <ldjb20@bath.ac.uk>   ##
+##########################################
+
+The Java Calculator supports the four basic mathematical operators:
+
+    Addition (+)
+    Subtraction (-)
+    Multiplication (*)
+    Division (/)
+
+It is possible to include other mathematical operators. This can be done by
+creating a class for the operator that extends the Operator class. For example,
+if you wanted to create an Exponentiation (^) class you could create a file
+called Exponentiation.java in the same folder as the other .java files with the
+following code:
+
+	public class Exponentiation extends Operator {
+		public Exponentiation() {
+			super.setData(new Object[] {4, "right"});
+		}
+		public Double operate(Double var1, Double var2) {
+			return Math.pow(var1, var2);
+		}
+	}
+
+※ A file called Exponentiation.java.example containing this code has been
+  included with the Java Calculator source code. It can be renamed to
+  Exponentiation.java to enable this operator.
+
+It should be noted that the constructor method Exponentiation() calls the
+setData() method of the superclass (Operator). An Object[] array is parsed as an
+argument in this method.
+
+The first element in this array is an int (integer) that indicates the
+operator's precedence. In this case, the precedence is 4. Exponentiation
+therefore has a higher precedence than multiplication, which has a precedence of
+3.
+
+The second element in the array is a String indicating the operator's
+associativity. In this case, the associativity is 'right'. Using either "left"
+or "right" is recommended, although technically speaking, only "left" with
+all-lowercase letters indicate a left-associative operator, and all other
+Strings will indicate a right-associative operator.
+
+Before the new operator can be used, the Operator class must be updated to
+recognise it. The Operator.java file contains a getOperator() method. Include an
+extra "else if" statement for the new operator using code similar to that below:
+
+	else if (input.equals("^")) {
+		return new Exponentiation();
+	}
+
+※ This code has been included in Operator.java, albeit commented-out. To enable
+  the exponentiation operator, simply uncomment this code.
+
+The input.equals("^") condition specifies the symbol associated with the
+operator. Symbols must be a single character.
+
+After creating the operator's class, updating the Operator.getOperator()
+method and compiling those classes, the new operator will now be ready to be
+used in the calculator.
