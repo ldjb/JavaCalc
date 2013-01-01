@@ -1,8 +1,8 @@
-############################
-#   Java Calculator 2012   #
-# Developed by Leon Byford #
-#   <ldjb20@bath.ac.uk>    #
-############################
+##############################
+##   Java Calculator 2012   ##
+## Developed by Leon Byford ##
+##   <ldjb20@bath.ac.uk>    ##
+##############################
 
 -- [00] TABLE OF CONTENTS --
 
