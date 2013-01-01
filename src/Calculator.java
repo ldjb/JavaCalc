@@ -1,8 +1,9 @@
 /*******************************************************************************
 ** Calculator.java                                                            **
 ** -------------------------------------------------------------------------- **
-** Contains main() method. Initialises GUI mode if possible, otherwise        **
-** interacts with user in CLI mode.                                           **
+** Contains main() method. Initialises graphical user interface (GUI) mode if **
+** possible, otherwise interacts with user in command-line interface (CLI)    **
+** mode.                                                                      **
 ** -------------------------------------------------------------------------- **
 ** Developed by Leon Byford <ldjb20@bath.ac.uk>                               **
 ** Last modified: 1 January 2013                                              **
@@ -13,7 +14,7 @@ import java.awt.*;
 import java.io.*;
 import java.util.*;
 public class Calculator {
-	// command-line interface (CLI) mode
+	// CLI mode
 	private static void cliMode() {
 		// BufferedReader for retrieving input from CLI
 		BufferedReader stdin = new BufferedReader(
@@ -54,19 +55,15 @@ public class Calculator {
 		}
 	}
 	public static void main(String[] args) {
-		// if "FORCE-CLI" argument has been used, force CLI mode
-		if (args.length > 0 && args[0].toUpperCase().equals("FORCE-CLI")) {
+		// if environment does not support GUI mode or CLI mode has been forced
+		if ((args.length > 0 && args[0].toUpperCase().equals("FORCE-CLI"))
+			|| GraphicsEnvironment.isHeadless()) {
+			// use CLI mode
 			cliMode();
 		}
 		else {
-			// try to initialise graphical user interface (GUI) mode
-			try {
-				CalcGUI.initAll();
-			}
-			catch (HeadlessException e) {
-				// if GUI not possible, resort to command-line mode
-				cliMode();
-			}
+			// use GUI mode
+			CalcGUI.initAll();
 		}
 	}
 }
